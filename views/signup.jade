@@ -1,0 +1,48 @@
+extends ./layout.jade
+block contenido
+  div(class="col-md-6 remove-float center-block big-top-space")
+    //i(class="fa fa-user-circle green")
+    //h1(class="text-center") Sign up
+    h1(class="text-center") Sign up
+      i(class="fa fa-user-circle")
+    
+    h2(class="medium-text text-center") Fill this form to join our platform! 
+    br
+    form(action="/users", method="POST" enctype="multipart/form-data" class="text-center")
+      div(class="form-group")
+        label(for="email") Email
+        input(type="text", class="input-width center-block", name="email", placeholder="Type your email", id="email", class="form-control")
+      div
+        label(for="password") Password
+        input(type="password", class="input-width center-block", name="password", placeholder=" Type your password", id="password", class="form-control")
+      br
+      div
+        label(for="password") Confirm your password
+        input(type="password", class="input-width center-block", name="password_confirmation", placeholder="Confirm your password", id="password", class="form-control")
+      br
+      div
+        label(for="username") Username
+        input(type="text", class="input-width center-block", name="username", placeholder="Type your username", id="username", class="form-control")
+      br
+      div
+        label(for="archivo") Avatar
+        input(type="file", name="archivo", id="archivo", class="form-control" class="input-width center-block")
+      br
+      div(class="form-group")
+        label(for="role") Role
+        radiogroup
+          br
+          input(type='radio', name='student')
+          |  Student
+          br
+          input(type='radio', name='teacher')
+          |   Teacher
+      
+      //div(class="form-check")
+        //label(for="role") Role
+        //input(type="text", class="input-width center-block", name="role", placeholder="Role", id="role", class="form-control")
+      div(class="row top-space")
+        div(class="col-xs-12 col-sm-6")
+          a(href="/login" class="left-space") I already have an account 
+        div(class="col-xs-12 col-sm-6 text-right") 
+          input(type="submit" value="Sign in" class="btn btn-info" style="margin-right: 11em")

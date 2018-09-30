@@ -1,0 +1,76 @@
+extends ../lessonLayout.jade
+block contenido
+  div(class="col-md-6 remove-float center-block big-top-space")
+    h1(class="text-center") Upload a new lesson
+    h2(class="medium-text text-center") Fill this form to publish a lesson to the platform!
+    br
+    form(action="/app/lessons/#{lesson.id}?_method=PUT", method="POST", enctype="multipart/form-data" class="text-center")
+      div(class="form-group")
+        label(for="title") Title
+        input(type="text", name="title", placeholder="Title of the lesson", id="title",
+        value="#{lesson.title}" class="form-control" class="input-width center-block")
+      div(class="form-group")
+        label(for="title") Text
+        textarea(type="text", name="text", placeholder="Text of the lesson", id="text",
+         class="form-control" class="center-block" rows="10") #{lesson.text}
+      div(class="form-group")
+        label(for="title") Image title
+        input(type="text", name="img_title", placeholder="Title of the image", id="img_title",
+        value="#{lesson.img_title}" class="form-control" class="input-width center-block")
+      div
+        label(for="archivo") Image
+        input(type="file", name="archivo", id="archivo", class="form-control" class="input-width center-block")
+      br
+      h2(class="medium-text text-center") Prepare your own test
+      br
+      div(class="form-group")
+        label(for="question1") 1. Introduce your first question
+        input(type="text", name="question1", placeholder="First question of the test", id="question1",
+        value="#{lesson.test[0].question}" class="form-control" class="input-width center-block")
+        br
+        label(for="answer1") Introduce your first answer
+        input(type="text", name="answer1", placeholder="First answer of the test", id="answer1",
+        value="#{lesson.test[0].answer}" class="form-control" class="input-width center-block")
+      div(class="form-group")
+        label(for="question2") 2. Introduce your second question
+        input(type="text", name="question2", placeholder="Second question of the test", id="question2",
+        value="#{lesson.test[1].question}" class="form-control" class="input-width center-block")
+        br
+        label(for="answer2") Introduce your answers
+        input(type="text", name="answer2a", placeholder="First Option", id="answer2a",
+        value="#{lesson.test[1].answer.answer2a}" class="form-control" class="input-width center-block")
+        input(type="text", name="answer2b", placeholder="Second Option", id="answer2b",
+        value="#{lesson.test[1].answer.answer2b}" class="form-control" class="input-width center-block")
+        input(type="text", name="answer2c", placeholder="Third Option", id="answer2c",
+        value="#{lesson.test[1].answer.answer2c}" class="form-control" class="input-width center-block")
+        input(type="text", name="correctAnswer2", placeholder="Correct Answer (a, b or c)", id="correctAnswer2",
+        value="#{lesson.test[1].answer.correctAnswer2}" class="form-control" class="input-width center-block")
+      div(class="form-group")
+        label(for="question3") 3. Introduce your third question
+        input(type="text", name="question3", placeholder="Third question of the test", id="question3",
+        value="#{lesson.test[2].question}" class="form-control" class="input-width center-block")
+        br
+        label(for="answer3") Introduce your third answer
+        input(type="text", name="answer3", placeholder="Third answer of the test", id="answer3",
+        value="#{lesson.test[2].answer}" class="form-control" class="input-width center-block")
+      div(class="form-group")
+        label(for="question4") 4. Introduce your fourth question
+        input(type="text", name="question4", placeholder="Fourth question of the test", id="question4",
+        value="#{lesson.test[3].question}" class="form-control" class="input-width center-block")
+        br
+        label(for="answer4") Introduce your answers
+        input(type="text", name="answer4a", placeholder="First Option", id="answer4a",
+        value="#{lesson.test[3].answer.answer4a}" class="form-control" class="input-width center-block")
+        input(type="text", name="answer4b", placeholder="Second Option", id="answer4b",
+        value="#{lesson.test[3].answer.answer4b}" class="form-control" class="input-width center-block")
+        input(type="text", name="answer4c", placeholder="Third Option", id="answer4c",
+        value="#{lesson.test[3].answer.answer4c}" class="form-control" class="input-width center-block")
+        input(type="text", name="correctAnswer4", placeholder="Correct Answer (a, b or c)", id="correctAnswer4",
+        value="#{lesson.test[3].answer.correctAnswer4}" class="form-control" class="input-width center-block")
+      div(class="form-group")
+        label(for="topic") Topic
+        input(type="text", name="topic", placeholder="Topic of the lesson", id="topic",
+        value="#{lesson.topic}" class="form-control" class="input-width center-block")
+      div(class="row top-space")
+        div(class="col-md-12")
+          input(type="submit" value="Save" class="btn btn-info big-left-space ")

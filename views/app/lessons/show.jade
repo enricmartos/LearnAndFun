@@ -1,0 +1,79 @@
+extends ../lessonLayout.jade
+block contenido
+  div(class="big-top-space")
+    div(class="img-container")
+      h3= lesson.title
+      p(class="text-center" style="font-weight: bold")= lesson.topic
+      p= lesson.text
+      img(src="/public/imagenes/#{lesson.title_id}.#{lesson.extension}" class="img-rounded")
+      if(typeof lesson.creator != "undefined")
+        p(style="font-style: italic")= lesson.img_title
+      
+      h3 Test time!
+      br
+      form(action="/app/lessons/#{lesson.id}", method="POST", enctype="multipart/form-data")
+        div(class="form-group")
+          label(for="title") 1. #{lesson.test[0].question}
+          input(type="text", name="answer1", placeholder="Introduce your answer", id="answer1",
+          class="form-control input-width-small")
+        div(class="form-group")
+          label(for="title") 2. #{lesson.test[1].question}
+          radiogroup
+            br
+            input(type='radio', name='answer2a')
+            |  #{lesson.test[1].answer.answer2a}
+            br
+            input(type='radio', name='answer2b')
+            |  #{lesson.test[1].answer.answer2b}
+            br
+            input(type='radio', name='answer2c' )
+            |  #{lesson.test[1].answer.answer2c}
+          //input(type="text", name="answer2", placeholder="Introduce your answer", id="answer2",
+          //class="form-control")
+        div(class="form-group")
+          label(for="title") 3. #{lesson.test[2].question}
+          input(type="text", name="answer3", placeholder="Introduce your answer", id="answer3",
+          class="form-control input-width-small")
+        div(class="form-group")
+          label(for="title") 4. #{lesson.test[3].question}
+          radiogroup
+            br
+            input(type='radio', name='answer4a')
+            |  #{lesson.test[3].answer.answer4a}
+            br
+            input(type='radio', name='answer4b' )
+            |  #{lesson.test[3].answer.answer4b}
+            br
+            input(type='radio', name='answer4c')
+            |  #{lesson.test[3].answer.answer4c}
+          //input(type="text", name="answer4", placeholder="Introduce your answer", id="answer4",
+          //class="form-control")
+
+        div(class="row top-space")
+          div(class="col-xs-12 col-sm-6")
+            button(type="submit" value="Correct" class="btn btn-info") Correct
+        h3 Ranking
+        if (users != undefined)
+        table.table.table-hover
+          thead
+            tr
+              th Position
+              th Username
+              th Score
+          tbody
+            each singleUser, i in users
+              tr
+                if (singleUser.username == user.username)
+                  td
+                    b= i + 1
+                  td 
+                    b #{singleUser.username}
+                  td 
+                    b #{singleUser.score}
+                else
+                  td= i + 1
+                  td #{singleUser.username}
+                  td #{singleUser.score}
+
+      p(class="text-right") By #{lesson.creator.username}
+  //script(src="../../../routes_app.js")
