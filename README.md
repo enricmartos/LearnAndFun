@@ -17,4 +17,4 @@ mongod
 ```
 node app
 ```
-- Open your browser and test the application on "localhost:9001"
+- Open your browser and test the application on *localhost:9001*
