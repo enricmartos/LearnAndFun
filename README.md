@@ -1,6 +1,6 @@
 # LearnAndFun
 
-LearnAndFun is a web application where teachers can upload their lessons and students are able to learn them. This [Google Drive folder](https://drive.google.com/open?id=158rEap-lpn7xvUJLVKse5Y1fO3RLyJbA) contains a video demo that shows its basic funcionality. The project uses MVC as design pattern and its arquitecture is API Rest based. NodeJS configures the backend side along with Express framework, while Bootstrap is the main framework used on frontend side. So, the programming languages involved here are Javascript, CSS and HTML. 
+LearnAndFun is a web application where teachers can upload their lessons and students are able to learn from them. This [Google Drive folder](https://drive.google.com/open?id=158rEap-lpn7xvUJLVKse5Y1fO3RLyJbA) contains a video demo that shows its basic funcionality. The project uses MVC as design pattern and its arquitecture is API Rest based. NodeJS configures the backend side along with Express framework, while Bootstrap is the main framework used on frontend side. So, the programming languages involved here are Javascript, CSS and HTML. 
 
 **How to run the application**
 
