@@ -1,0 +1,27 @@
+doctype html
+html(lang="es")
+  head
+    title Learn & Fun
+    meta(charset="utf-8")
+    link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet")
+    link(href="/public/css/app.css" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Lato|Montserrat+Alternates:300,400,700" rel="stylesheet")
+  body
+    nav(class="large-padding navbar-fixed-top gray-smooth white-text ")
+      ul
+        li
+          a(href="/app" ) Home
+        //The current user has Teacher role
+        if(user.role)
+          li 
+            a(href="/app/lessons/new" ) Upload lesson
+          li 
+            a(href="/app/lessons" ) My lessons
+        li
+          a(href="/app/profile") Profile
+        li 
+          a(href="/login" ) Log out
+        li
+          img(src="/public/imagenes/#{user.title_id}.#{user.extension}" class="img-circle img-navbar")
+
+    block contenido
