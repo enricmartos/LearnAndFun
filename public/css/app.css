@@ -1,0 +1,212 @@
+/*Background*/
+body{
+  /*background-image: url("../imagenes/admin_img/background.jpg");*/
+  background-color: #D5EEEE;
+  /*background-repeat: no-repeat;*/
+  /*background-size: cover;*/
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 25px;
+}
+
+footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: gray;
+  color: white;
+  text-align: center;
+}
+
+.contenido{
+  background:gray;
+  background-size: cover;
+  margin:0 auto; /*Centrada*/
+  border-radius: 8px;
+  opacity: 0.9;
+}
+/**/
+
+.right-space{
+  margin-right: 1em;
+}
+
+.left-space{
+  margin-left: 10em;
+}
+
+.big-left-space {
+  margin-left: 20em;
+}
+
+.big-right-space {
+  margin-right: 5em;
+}
+
+.right-space-navbar {
+  margin-right: 60em;
+}
+
+.remove-float{
+  float: none;
+}
+
+.top-space {
+  margin-top: 1.5em;
+}
+
+.big-top-space{
+  margin-top: 75px;
+}
+
+.large-padding{
+  padding: 5px 10px;
+}
+
+/* Images and Image container*/
+/*Default para que las imagenes no desborden el 100% del container (div) que ocupan*/
+img {
+  max-width: 100%;
+}
+
+
+/* img dimensions*/
+
+.img-navbar {
+  width: 30px;
+  height: 30px;
+}
+
+.img-container {
+  width: 700px;
+  max-width: 100%;
+  margin:0 auto; /*Centrada*/
+}
+
+.img-container h1 {
+  font-size: 1.5em;
+}
+
+.img-container h2{
+  padding: 15px;
+  font-size: 1.1em;
+  border-bottom: 1px solid #222;
+  text-align: left;
+}
+
+.img-container h3{
+  padding: 15px;
+  font-size: 2em;
+  border-bottom: 1px solid #222;
+  text-align: center;
+}
+
+.img-container h4{
+  text-align: right;
+  font-size: 0.8em;
+  margin-top: 1em;
+}
+
+.img-container p {
+  /*text-align: right;*/
+  font-size: 1.2em;
+  margin-top: 1em;
+}
+
+/* Navigation bar */
+nav {
+  text-align: right;
+}
+nav li {
+  display: inline-block;
+  margin-right: 1em;
+  font-size: 1.1em;
+}
+
+nav li a {
+  color:white;
+}
+
+nav li a:hover {
+  color: white;
+}
+
+.border {
+  border: solid 1px #eee;
+}
+
+.tr:nth-of-type(odd) {
+  background-color: #eee;
+}
+
+/* Form */
+form.link {
+  display: inline-block;
+}
+
+form.link input[type="submit"]{
+  background-color: transparent;
+  border: none;
+  color: rgb(200, 50, 50);
+}
+
+/*Colours*/
+
+
+
+.white-text {
+  color: white;
+}
+
+.black {
+  background-color: #222;
+}
+
+.gray-smooth {
+  /*background-color: #1B797F;*/
+  background-color: #1C657F;
+  /*background-color: #428bca;*/
+}
+
+
+.black-text {
+  color: black;
+}
+
+/*FONTS*/
+.montserrat {
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.big-text {
+  font-size: 3em;
+}
+
+.medium-text {
+  font-size: 1.5em;
+}
+
+.small-text {
+  font-size: 1.25em;
+}
+
+/*input box width*/
+.input-width {
+  width: 25em;
+}
+
+.input-width-small {
+  width: 12em;
+}
+
+.input-width-text {
+  width: 30em;
+}
+
+.input-height-text {
+  height: 50em;
+}
+
+textarea {
+  height: auto;
+}
