@@ -4,7 +4,7 @@ LearnAndFun is a web application where teachers can upload their lessons and stu
 This video demo shows its basic funcionality. 
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=YWv26BDM3UM
-" target="_blank"><img src="http://img.youtube.com/vi/YWv26BDM3UM/0.jpg" 
+" target="_blank"><img src="https://github.com/enricmartos/LearnAndFun/blob/master/public/imagenes/admin_img/learn_main.PNG" 
 width="1080" height="720" border="10"/></a>
 
 The project uses MVC as design pattern and its arquitecture is API Rest based. NodeJS and MongoDB configure the backend side, while Bootstrap is the main framework used on frontend side. So, the programming languages involved here are Javascript, CSS and HTML. 
