@@ -5,7 +5,7 @@ This video demo shows its basic funcionality.
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=YWv26BDM3UM
 " target="_blank"><img src="http://img.youtube.com/vi/YWv26BDM3UM/0.jpg" 
-width="560" height="315" border="10" /></a>
+width="1080" height="720" border="10" /></a>
 
 The project uses MVC as design pattern and its arquitecture is API Rest based. NodeJS configures the backend side along with Express framework, while Bootstrap is the main framework used on frontend side. So, the programming languages involved here are Javascript, CSS and HTML. 
 
