@@ -9,14 +9,14 @@ width="600" height="350" border="10"/></a>
 
 The project uses **MVC** as design pattern and its arquitecture is **API Rest** based. NodeJS and MongoDB configure the backend side, while Bootstrap is the main framework used on frontend side. So, the programming languages involved here are Javascript, CSS and HTML. 
 
-**How to run the application**
+# Usage
 
 - NodeJS and MongoDB must be already installed in your machine.
-- Open a terminal and run the following command to install all node modules specified in *package.js* file:
+- Install all node modules specified in *package.js* file:
 ```
 npm install
 ```
-- Run MongoDB from the terminal:
+- Run MongoDB:
 ```
 mongod
 ```
