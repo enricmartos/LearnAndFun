@@ -1,5 +1,7 @@
 # LearnAndFun
 
+## Description
+
 LearnAndFun is a web application where teachers can upload their lessons and students are able to learn from them. Lessons are structured in several subjects and students can solve the tests that teachers have previously designed. All the scores of a given lesson belong to a common ranking, so students can check their particular progress.
 The video demo below shows its basic funcionality. 
 
