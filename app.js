@@ -16,7 +16,7 @@ var app = express();
 var server = http.Server(app);
 
 //Middleware built-in
-//Retrieveing of static files
+//Retrieving of static files
 app.use("/public", express.static("public"));
 //Read Request Params for application/json requests
 app.use(bodyParser.json());
