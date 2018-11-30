@@ -52,7 +52,10 @@ router.route("/profile")
       User.updateOne({_id: res.locals.user._id}, {$set: {username: req.body.username, email:
         req.body.email, title_id: objectId_user, extension: extension}}, function(err) {
           if(!err) {
-            fs.rename(req.body.archivo.path, "public/imagenes/"+ objectId_user+"."+ extension);
+            fs.rename(req.body.archivo.path, "public/imagenes/"+ objectId_user+"."+ extension, (err) => {
+              if (err) throw err;
+              console.log('The file has been saved!');
+            });
             Lesson.find({})
                   .populate("creator")
                   .exec(function(err, lessons){
@@ -316,7 +319,10 @@ router.route("/lessons/:id")
 
       Lesson.updateOne({_id: res.locals.lesson._id}, {$set: lesson_data}, function(err) {
           if(!err) {
-            fs.rename(req.body.archivo.path, "public/imagenes/"+lesson.title_id+"."+ extension);
+            fs.rename(req.body.archivo.path, "public/imagenes/"+lesson.title_id+"."+ extension, (err) => {
+              if (err) throw err;
+              console.log('The file has been saved!');
+            });
             res.redirect("/app/lessons/" + res.locals.lesson._id);
             //res.render("app/lessons");
           }
@@ -420,7 +426,10 @@ router.route("/lessons/:id")
 
       lesson.save(function(err) {
           if(!err) {
-            fs.rename(req.body.archivo.path, "public/imagenes/"+lesson.title_id+"."+ extension);
+            fs.rename(req.body.archivo.path, "public/imagenes/"+lesson.title_id+"."+ extension, (err) => {
+              if (err) throw err;
+              console.log('The file has been saved!');
+            });
             res.redirect("/app/lessons/" + lesson._id)
           }
           else {

@@ -86,7 +86,10 @@ app.post("/users", function(req, res) {
   //Save with promises
   user.save().then(function(us){
     //res.send("Guardamos tus datos");
-    fs.rename(req.body.archivo.path, "public/imagenes/"+user.title_id+"."+ extension);
+    fs.rename(req.body.archivo.path, "public/imagenes/"+user.title_id+"."+ extension, (err) => {
+      if (err) throw err;
+      console.log('The file has been saved!');
+    });
     req.session.user_id = user._id;
     res.redirect("/app");
   }, function(err){
