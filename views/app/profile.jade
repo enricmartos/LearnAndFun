@@ -16,6 +16,8 @@ block contenido
       br
       div
         label(for="archivo") Avatar
+        if(user.title_id != null)
+          img(src="/public/imagenes/#{user.title_id}.#{user.extension}" class="img-circle img-navbar")
         input(type="file", name="archivo", id="archivo", class="form-control"
         class="input-width center-block")
       div(class="row top-space")

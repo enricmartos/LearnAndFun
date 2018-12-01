@@ -44,18 +44,32 @@ var lesson_finder_middleware = require("./middlewares/find_lesson");
 router.route("/profile")
     .get(function(req, res) {
       res.render("app/profile", {user: res.locals.user});
+      //console.log("Current profile image: " + res.locals.user.title_id);
     })
     .put(function(req, res){
-      var objectId_user = new ObjectID();
-      var extension = req.body.archivo.name.split(".").pop();
+      var objectId_user;
+      var extension;
+      //Only compose a new image  if the user has edited the current one
+      //Otherwise, keep his current image
+      if (req.body.archivo.name == "") {
+        objectId_user =  res.locals.user.title_id;
+        extension = res.locals.user.extension;
+      }
+      else {
+        objectId_user = new ObjectID();
+        extension = req.body.archivo.name.split(".").pop();
+      }
 
       User.updateOne({_id: res.locals.user._id}, {$set: {username: req.body.username, email:
         req.body.email, title_id: objectId_user, extension: extension}}, function(err) {
           if(!err) {
-            fs.rename(req.body.archivo.path, "public/imagenes/"+ objectId_user+"."+ extension, (err) => {
-              if (err) throw err;
-              console.log('The file has been saved!');
-            });
+            //Only write a new image if the user has edited the current one
+            if (req.body.archivo.name != "") {
+              fs.rename(req.body.archivo.path, "public/imagenes/"+ objectId_user+"."+ extension, (err) => {
+                if (err) throw err;
+                console.log('The file has been saved!');
+              });
+            }
             Lesson.find({})
                   .populate("creator")
                   .exec(function(err, lessons){
@@ -64,7 +78,7 @@ router.route("/profile")
                   })
           }
           else {
-            console.log(err);
+            console.log("Error: " + err);
             res.render("app/profile");
           }
       })
@@ -289,12 +303,11 @@ router.route("/lessons/:id")
 
       var objectId_lesson;
       var extension;
-      console.log("req body archivo: " + typeof(req.body.archivo.name));
+      //Only compose a new image  if the user has edited the current one
+      //Otherwise, keep his current image
       if (req.body.archivo.name == "") {
         objectId_lesson = res.locals.lesson.title_id;
         extension = res.locals.lesson.extension;
-        //console.log("title_id: " + objectId_lesson);
-        //console.log("extension: " + extension);
       } else {
         objectId_lesson = new ObjectID();
         extension = req.body.archivo.name.split(".").pop();
@@ -319,10 +332,14 @@ router.route("/lessons/:id")
 
       Lesson.updateOne({_id: res.locals.lesson._id}, {$set: lesson_data}, function(err) {
           if(!err) {
-            fs.rename(req.body.archivo.path, "public/imagenes/"+lesson.title_id+"."+ extension, (err) => {
-              if (err) throw err;
-              console.log('The file has been saved!');
-            });
+            //Only write a new image if the user has edited the current one
+            if (req.body.archivo.name != "") {
+              fs.rename(req.body.archivo.path, "public/imagenes/"+lesson.title_id+"."+ extension, (err) => {
+                if (err) throw err;
+                console.log('The file has been saved!');
+              });
+            }
+
             res.redirect("/app/lessons/" + res.locals.lesson._id);
             //res.render("app/lessons");
           }

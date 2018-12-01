@@ -1,8 +1,8 @@
 extends ../lessonLayout.jade
 block contenido
   div(class="col-md-6 remove-float center-block big-top-space")
-    h1(class="text-center") Upload a new lesson
-    h2(class="medium-text text-center") Fill this form to publish a lesson to the platform!
+    h1(class="text-center") Edit this lesson
+    h2(class="medium-text text-center") Fill this form to edit the lesson!
     br
     form(action="/app/lessons/#{lesson.id}?_method=PUT", method="POST", enctype="multipart/form-data" class="text-center")
       div(class="form-group")
@@ -18,7 +18,9 @@ block contenido
         input(type="text", name="img_title", placeholder="Title of the image", id="img_title",
         value="#{lesson.img_title}" class="form-control" class="input-width center-block")
       div
-        label(for="archivo") Image
+        label(for="archivo") Image 
+        if(lesson.title_id != null)
+          img(src="/public/imagenes/#{lesson.title_id}.#{lesson.extension}" class="img-circle img-navbar")
         input(type="file", name="archivo", id="archivo", class="form-control" class="input-width center-block")
       br
       h2(class="medium-text text-center") Prepare your own test
