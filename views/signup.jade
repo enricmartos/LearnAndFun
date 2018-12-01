@@ -1,8 +1,7 @@
 extends ./layout.jade
 block contenido
   div(class="col-md-6 remove-float center-block big-top-space")
-    //i(class="fa fa-user-circle green")
-    //h1(class="text-center") Sign up
+  
     h1(class="text-center") Sign up
       i(class="fa fa-user-circle")
     
@@ -28,19 +27,17 @@ block contenido
         label(for="archivo") Avatar
         input(type="file", name="archivo", id="archivo", class="form-control" class="input-width center-block")
       br
+
       div(class="form-group")
         label(for="role") Role
         radiogroup
           br
-          input(type='radio', name='student')
+          input(type='radio', name='role', value="0")
           |  Student
           br
-          input(type='radio', name='teacher')
+          input(type='radio', name='role', , value="1")
           |   Teacher
-      
-      //div(class="form-check")
-        //label(for="role") Role
-        //input(type="text", class="input-width center-block", name="role", placeholder="Role", id="role", class="form-control")
+                  
       div(class="row top-space")
         div(class="col-xs-12 col-sm-6")
           a(href="/login" class="left-space") I already have an account 

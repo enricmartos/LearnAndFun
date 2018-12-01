@@ -69,13 +69,7 @@ app.post("/users", function(req, res) {
   console.log("req body EXTENSION: " + req.body.archivo);
   var extension = req.body.archivo.name.split(".").pop();
 
-  var role;
-  if (req.body.student == "on") {
-    role = 0;
-  }
-  else if (req.body.teacher = "on") {
-    role = 1;
-  }
+  var role = req.body.role;
 
   var user = new User({email:req.body.email, password: req.body.password,
     password_confirmation: req.body.password_confirmation,

@@ -24,20 +24,6 @@ function Ranking (username, score) {
     this.score = score;
 }
 
-function getCorrectAnswer(rawCorrectAnswer, ansA, ansB, ansC) {
-  var finalCorrectAnswer;
-  if (rawCorrectAnswer == "a") {
-    finalCorrectAnswer = ansA;
-  }
-  else if (rawCorrectAnswer == "b") {
-    finalCorrectAnswer = ansB;
-  }
-  else {
-    finalCorrectAnswer = ansC;
-  }
-  return finalCorrectAnswer;
-}
-
 var lesson_finder_middleware = require("./middlewares/find_lesson");
 
 //User Profile Page (Get and Put Methods)
@@ -155,27 +141,9 @@ router.route("/lessons/:id")
             sum -= penalty;
             console.log("Wrong answer!: " + typeof(answer1));
       }
-
-      console.log("req body answer 2a:" + req.body.answer2a);
-      console.log("req body answer 2b:" + req.body.answer2b);
-      console.log("req body answer 2c:" + req.body.answer2c);
-      //Parse and interpret the input from the radio buttons
-      var userAnswer2;
-      if (req.body.answer2a == "on") {
-        userAnswer2 = res.locals.lesson.test[1].answer.answer2a;
-      }
-      else if (req.body.answer2b == "on") {
-        userAnswer2 = res.locals.lesson.test[1].answer.answer2b;
-      }
-      else if (req.body.answer2c == "on") {
-        userAnswer2 = res.locals.lesson.test[1].answer.answer2c;
-      }
-
-      console.log("userAnswer2: " + userAnswer2);
-      var correctAnswer2 = getCorrectAnswer(res.locals.lesson.test[1].answer.correctAnswer2,
-      res.locals.lesson.test[1].answer.answer2a, res.locals.lesson.test[1].answer.answer2b,
-      res.locals.lesson.test[1].answer.answer2c);
-      if (correctAnswer2 == userAnswer2) {
+      var userAnswer2 = req.body.answer2;
+      var correctAnswer2 = res.locals.lesson.test[1].answer.correctAnswer2;
+      if (userAnswer2 == correctAnswer2) {
         console.log("Correct answer!");
         sum += positivePoint;
       } else if (userAnswer2 != undefined &&
@@ -197,22 +165,11 @@ router.route("/lessons/:id")
             console.log("Wrong answer!");
       }
       //Parse and interpret the input from the radio buttons
-      var userAnswer4;
-      if (req.body.answer4a == "on") {
-        userAnswer4 = res.locals.lesson.test[3].answer.answer4a;
-      }
-      else if (req.body.answer4b == "on") {
-        userAnswer4 = res.locals.lesson.test[3].answer.answer4b;
-      }
-      else if (req.body.answer4c == "on") {
-        userAnswer4 = res.locals.lesson.test[3].answer.answer4c;
-      }
+      var userAnswer4 = req.body.answer4;
 
       console.log("user answer4:" + userAnswer4);
-      var correctAnswer4 = getCorrectAnswer(res.locals.lesson.test[3].answer.correctAnswer4,
-      res.locals.lesson.test[3].answer.answer4a, res.locals.lesson.test[3].answer.answer4b,
-      res.locals.lesson.test[3].answer.answer4c);
-      if (correctAnswer4 == userAnswer4) {
+      var correctAnswer4 = res.locals.lesson.test[3].answer.correctAnswer4;
+      if (userAnswer4 == correctAnswer4) {
         console.log("Correct answer!");
         sum += positivePoint;
       } else if (userAnswer4 != undefined &&
