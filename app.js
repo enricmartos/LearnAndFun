@@ -7,6 +7,7 @@ var routes_app = require("./routes_app");
 var session_middleware = require("./middlewares/session");
 var formidable = require("express-formidable");
 var http = require("http");
+var mongoose = require("mongoose");
 var ObjectID = require('mongodb').ObjectID;
 var fs = require("fs");
 
@@ -115,3 +116,4 @@ app.use("/app", routes_app);
 
 //Server execution
 server.listen(9001);
+mongoose.connect("mongodb://localhost/appdb");

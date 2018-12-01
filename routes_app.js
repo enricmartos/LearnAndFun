@@ -4,6 +4,7 @@
 var express = require("express");
 var Lesson = require("./models/lesson");
 var User = require("./models/user");
+var opts = { runValidators: true };
 var router = express.Router();
 var fs = require("fs");
 var ObjectID = require('mongodb').ObjectID;
@@ -47,7 +48,7 @@ router.route("/profile")
       }
 
       User.updateOne({_id: res.locals.user._id}, {$set: {username: req.body.username, email:
-        req.body.email, title_id: objectId_user, extension: extension}}, function(err) {
+        req.body.email, title_id: objectId_user, extension: extension}}, opts, function(err) {
           if(!err) {
             //Only write a new image if the user has edited the current one
             if (req.body.archivo.name != "") {
@@ -211,7 +212,7 @@ router.route("/lessons/:id")
           }
         })
   })
-  //Update image
+  //Update lesson
   .put(function(req, res){
 
     var question1 = req.body.question1;
@@ -287,7 +288,7 @@ router.route("/lessons/:id")
       console.log("title_id: " + lesson.title_id);
       console.log("extension: " + lesson.extension);
 
-      Lesson.updateOne({_id: res.locals.lesson._id}, {$set: lesson_data}, function(err) {
+      Lesson.updateOne({_id: res.locals.lesson._id}, {$set: lesson_data}, opts, function(err) {
           if(!err) {
             //Only write a new image if the user has edited the current one
             if (req.body.archivo.name != "") {
@@ -296,17 +297,15 @@ router.route("/lessons/:id")
                 console.log('The file has been saved!');
               });
             }
-
             res.redirect("/app/lessons/" + res.locals.lesson._id);
-            //res.render("app/lessons");
           }
           else {
-            console.log(lesson);
-            //res.render(err);
-            res.render("app/lessons/" + req.params.id + "/edit");
+            console.log("Current Lesson" + lesson);
+            //res.redirect("app/lessons/" + req.params.id + "/edit");
+            console.log("req params id value: " + res.locals.lesson._id);
+            res.redirect("/app/lessons/" + res.locals.lesson._id + "/edit");
           }
       })
-
   })
   //Delete lessons
   .delete(function(req, res) {
@@ -408,7 +407,7 @@ router.route("/lessons/:id")
           }
           else {
             console.log(lesson);
-            res.render(err);
+            res.redirect("/app/lessons/new");
           }
       })
     });

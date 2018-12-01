@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 //Local database
 //mongoose.connect("mongodb://localhost/fotos");
 //Server database
-mongoose.connect("mongodb://localhost/appdb");
+
 
 
 var password_validation = {
