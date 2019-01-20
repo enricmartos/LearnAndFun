@@ -11,7 +11,46 @@ width="600" height="350" border="10"/></a>
 
 The project uses **MVC** as design pattern and its arquitecture is **API Rest** based. NodeJS and MongoDB configure the backend side, while Bootstrap is the main framework used on frontend side. So, the programming languages involved here are Javascript, CSS and HTML. 
 
-# Build setup
+## Stack
+
+*Front-end*
+- Jade
+- Bootstrap
+
+*Back-end*
+- NodeJS
+- Express (as a routing framework)
+
+*Database*
+- MongoDB
+
+*Dependency management tool*
+- NPM
+
+*Containerization*
+- Docker-compose
+
+## Build setup
+
+### With Docker
+
+- Clone this repo to your local machine.
+```
+# Start docker-compose
+
+$ docker-compose up
+```
+
+This command creates the two docker containers detailed below:
+
+- _learn_and_fun_app_1_: Main container of the NodeJS application
+
+- _learn_and_fun_mongo_1_: DB container
+
+- Open your browser and test the application on *localhost:3000*
+
+
+### Without Docker
 
 - NodeJS and MongoDB must be already installed in your machine.
 ```
@@ -25,4 +64,4 @@ npm install
 node app
 ```
 
-- Open your browser and test the application on *localhost:9001*
+- Open your browser and test the application on *localhost:3000*
